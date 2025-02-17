@@ -14,3 +14,8 @@ class MissCannibalsVariant(Problem):
 
 if __name__ == '__main__':
     mc = MissCannibalsVariant(4,4)
+
+    path = depth_first_graph_search(mc).solution()
+    print(path)
+    path = breadth_first_graph_search(mc).solution()
+    print(path)
