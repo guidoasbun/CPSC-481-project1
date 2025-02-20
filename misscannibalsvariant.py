@@ -4,11 +4,13 @@ from search import *
 class MissCannibalsVariant(Problem):
 
 
-    def __init__(self, N1=4, N2=4, goal=(3, 3, True)):
+    def __init__(self, N1=4, N2=4, goal=None):
         """ Define goal state and initialize a problem """
         initial = (N1, N2, True)
         self.N1 = N1
         self.N2 = N2
+        if goal is None:
+            goal = (0, 0, False)
         super().__init__(initial, goal)
 
 
@@ -19,7 +21,6 @@ class MissCannibalsVariant(Problem):
         m, c, onLeft = state
         valid_actions = []
         
-        # Maximum people that can be in the boat is 3
         possible_actions = ['M', 'C', 'MM', 'MC', 'CC', 'MMM', 'MMC', 'MCC', 'CCC']
         
         if onLeft:  # Boat on left bank, moving people from left to right
